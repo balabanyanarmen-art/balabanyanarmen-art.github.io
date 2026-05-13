@@ -5,8 +5,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Armen Balabanyan</title>
-
+<div class="title" onclick="goHome()">
+armen balabanyan
+</div>
+    
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -37,18 +39,19 @@ body{
 }
 
 .title{
-    font-size:48px;
+    font-size:28px;
     line-height:1;
     margin-bottom:50px;
 }
 
 .menu-item{
-    font-size:48px;
+    font-size:28px;
     line-height:1.1;
     margin-bottom:18px;
     cursor:pointer;
-    text-transform:lowercase;
-    transition:0.2s;
+.active{
+    text-transform:uppercase;
+}    transition:0.2s;
 }
 
 .menu-item:hover{
@@ -56,8 +59,9 @@ body{
 }
 
 .active{
+.active{
     text-transform:uppercase;
-}
+}}
 
 .content{
     display:none;
