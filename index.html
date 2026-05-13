@@ -72,16 +72,16 @@
             display: inline-block;
             margin-bottom: 10px;
         }
-.slider-window {
-    display: none; /* Սկզբում թաքնված */
+..slider-window {
+    display: none;
     width: 100%;
-    max-width: 800px; /* Սա առավելագույն լայնությունն է */
+    /* Այստեղ դիր այն լայնությունը, որը քեզ դուր է գալիս (օրինակ՝ 500px) */
+    max-width: 500px; 
     margin-top: 15px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    position: relative;
-    /* Հեռացրել ենք ֆիքսված height-ը */
+    border: 1px solid #f0f0f0; /* Նուրբ եզրագիծ, որ պատուհանը երևա */
 }
 
 .slider-window.open {
@@ -89,12 +89,17 @@
 }
 
 .slider-window img {
-    width: 100%; /* Նկարը կզբաղեցնի պատուհանի ամբողջ լայնությունը */
-    height: auto; /* Բարձրությունը կհարմարվի նկարի համամասնությանը */
+    /* Նկարի առավելագույն բարձրությունը՝ էկրանի կեսից մի քիչ ավել */
+    max-height: 500px; 
+    width: 100%;
+    height: auto;
     display: block;
     flex-shrink: 0;
     scroll-snap-align: center;
-    object-fit: contain;
+    object-fit: contain; /* Սա թույլ չի տա, որ նկարը կտրվի */
+    background: #fff;
+}
+
 }
         /* Թաքցնել scrollbar-ը */
         .slider-window::-webkit-scrollbar {
