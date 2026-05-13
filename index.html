@@ -72,36 +72,30 @@
             display: inline-block;
             margin-bottom: 10px;
         }
+.slider-window {
+    display: none; /* Սկզբում թաքնված */
+    width: 100%;
+    max-width: 800px; /* Սա առավելագույն լայնությունն է */
+    margin-top: 15px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    position: relative;
+    /* Հեռացրել ենք ֆիքսված height-ը */
+}
 
-        /* Սլայդերի հիմնական պատուհանը */
-        .slider-window {
-            display: none;
-            width: 100%;
-            max-width: 600px; /* Կարող ես փոխել չափսը */
-            height: 400px;
-            overflow-x: auto;
-            overflow-y: hidden;
-            display: none; /* Սկզբում թաքնված */
-            white-space: nowrap;
-            scroll-snap-type: x mandatory; /* Թերթելու էֆեկտը */
-            scroll-behavior: smooth;
-            border: 1px solid #eee;
-            position: relative;
-        }
+.slider-window.open {
+    display: flex;
+}
 
-        .slider-window.open {
-            display: flex;
-        }
-
-        .slider-window img {
-            height: 100%;
-            width: 100%;
-            object-fit: contain; /* Նկարը չի ձգվում, պահպանում է ձևը */
-            scroll-snap-align: center; /* Կանգնում է կենտրոնում */
-            flex-shrink: 0;
-            background: #f9f9f9;
-        }
-
+.slider-window img {
+    width: 100%; /* Նկարը կզբաղեցնի պատուհանի ամբողջ լայնությունը */
+    height: auto; /* Բարձրությունը կհարմարվի նկարի համամասնությանը */
+    display: block;
+    flex-shrink: 0;
+    scroll-snap-align: center;
+    object-fit: contain;
+}
         /* Թաքցնել scrollbar-ը */
         .slider-window::-webkit-scrollbar {
             display: none;
