@@ -1,210 +1,272 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Armen Balabanyan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bowlby+One&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 40px;
+            background: white;
+            color: black;
+            font-family: 'Bowlby One', sans-serif;
+        }
 
-<title>Armen Balabanyan</title>
+        .container {
+            display: flex;
+            gap: 80px;
+            align-items: flex-start;
+        }
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin">
+        .left {
+            width: 30%;
+            position: sticky;
+            top: 40px;
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Bowlby+One&display=swap" rel="stylesheet">
+        .right {
+            width: 70%;
+        }
 
-<style>
+        .title {
+            font-size: 18px;
+            line-height: 1.2;
+            margin-bottom: 40px;
+            cursor: pointer;
+            text-transform: lowercase;
+        }
 
-body{
-    margin:0;
-    padding:40px;
-    background:white;
-    color:black;
-    font-family:'Bowlby One', sans-serif;
-}
+        .menu-item {
+            font-size: 18px;
+            line-height: 1.2;
+            margin-bottom: 14px;
+            cursor: pointer;
+            text-transform: lowercase;
+            transition: opacity 0.3s;
+        }
 
-.container{
-    display:flex;
-    gap:80px;
-    align-items:flex-start;
-}
+        .menu-item:hover {
+            opacity: 0.5;
+        }
 
-.left{
-    width:40%;
-}
+        .active {
+            text-transform: uppercase;
+        }
 
-.right{
-    width:60%;
-}
+        .content {
+            display: none;
+            font-size: 18px;
+            line-height: 1.5;
+            text-transform: lowercase;
+        }
 
-.title{
-    font-size:18px;
-    line-height:1.2;
-    margin-bottom:40px;
-    cursor:pointer;
-    text-transform:lowercase;
-}
+        .content.active {
+            display: block;
+        }
 
-.menu-item{
-    font-size:18px;
-    line-height:1.2;
-    margin-bottom:14px;
-    cursor:pointer;
-    text-transform:lowercase;
-}
+        /* Գործերի ցանկի ոճերը */
+        .work-item {
+            margin-bottom: 25px;
+        }
 
-.menu-item:hover{
-    opacity:0.5;
-}
+        .work-title {
+            cursor: pointer;
+            display: inline-block;
+            transition: 0.3s;
+        }
 
-.active{
-    text-transform:uppercase;
-}
+        .work-title:hover {
+            opacity: 0.6;
+        }
 
-.content{
-    display:none;
-    font-size:18px;
-    line-height:1.5;
-    text-transform:lowercase;
-}
+        /* Նկարների սլայդերի հատվածը */
+        .gallery-container {
+            display: none; /* Սկզբում թաքնված է */
+            margin-top: 15px;
+            overflow-x: auto; /* Հորիզոնական թերթելու համար */
+            white-space: nowrap;
+            padding-bottom: 10px;
+            -webkit-overflow-scrolling: touch;
+        }
 
-.content.active{
-    display:block;
-}
+        .gallery-container.open {
+            display: flex;
+            gap: 15px;
+        }
 
-.work{
-    margin-bottom:12px;
-}
+        .gallery-container img {
+            height: 350px; /* Նկարների բարձրությունը */
+            width: auto;
+            filter: grayscale(100%);
+            transition: filter 0.4s;
+            display: block;
+        }
 
-@media(max-width:900px){
+        .gallery-container img:hover {
+            filter: grayscale(0%);
+        }
 
-.container{
-    flex-direction:column;
-    gap:40px;
-}
+        /* Կոնտակտների հղումներ */
+        .contact-link {
+            color: black;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+        }
 
-.left{
-    width:100%;
-}
+        .contact-link:hover {
+            opacity: 0.5;
+        }
 
-.right{
-    width:100%;
-}
+        /* Scrollbar-ի ձևավորում */
+        .gallery-container::-webkit-scrollbar {
+            height: 4px;
+        }
+        .gallery-container::-webkit-scrollbar-thumb {
+            background: #000;
+        }
 
-}
-
-</style>
+        @media(max-width: 900px) {
+            .container {
+                flex-direction: column;
+                gap: 40px;
+            }
+            .left, .right {
+                width: 100%;
+            }
+            .gallery-container img {
+                height: 250px;
+            }
+        }
+    </style>
 </head>
-
 <body>
 
 <div class="container">
+    <div class="left">
+        <div class="title" onclick="goHome()">
+            armen balabanyan
+        </div>
+        <div class="menu-item" onclick="showContent('visual', this)">
+            visual stories
+        </div>
+        <div class="menu-item" onclick="showContent('shadow', this)">
+            shadow theatre
+        </div>
+        <div class="menu-item" onclick="showContent('other', this)">
+            other
+        </div>
+        <div class="menu-item" onclick="showContent('bio', this)">
+            biography
+        </div>
+        <div class="menu-item" onclick="showContent('contact', this)">
+            contact
+        </div>
+    </div>
 
-<div class="left">
+    <div class="right">
+        
+        <div id="visual" class="content">
+            <div class="work-item">
+                <div class="work-title" onclick="toggleGallery('hh-gallery')">HH</div>
+                <div id="hh-gallery" class="gallery-container">
+                    <img src="images/hh1.jpg" alt="hh project 1">
+                    <img src="images/hh2.jpg" alt="hh project 2">
+                    <img src="images/hh3.jpg" alt="hh project 3">
+                </div>
+            </div>
 
-<div class="title" onclick="goHome()">
-armen balabanyan
-</div>
+            <div class="work-item">
+                <div class="work-title" onclick="toggleGallery('ban-gallery')">BAN</div>
+                <div id="ban-gallery" class="gallery-container">
+                    <img src="images/ban1.jpg" alt="ban project 1">
+                    <img src="images/ban2.jpg" alt="ban project 2">
+                </div>
+            </div>
 
-<div class="menu-item" onclick="showContent('visual', this)">
-visual stories
-</div>
+            <div class="work-item">
+                <div class="work-title" onclick="toggleGallery('22-gallery')">22:1-12</div>
+                <div id="22-gallery" class="gallery-container">
+                    <img src="images/22_1.jpg" alt="22 project">
+                </div>
+            </div>
 
-<div class="menu-item" onclick="showContent('shadow', this)">
-shadow theatre
-</div>
+            <div class="work-item">
+                <div class="work-title" onclick="toggleGallery('il-gallery')">ILUMINATOR</div>
+                <div id="il-gallery" class="gallery-container">
+                    <img src="images/il1.jpg" alt="iluminator">
+                </div>
+            </div>
+        </div>
 
-<div class="menu-item" onclick="showContent('other', this)">
-other
-</div>
+        <div id="shadow" class="content">
+            <div class="work-item">WORKSHOPS</div>
+            <div class="work-item">ENKI</div>
+        </div>
 
-<div class="menu-item" onclick="showContent('bio', this)">
-biography
-</div>
+        <div id="other" class="content">
+            <div class="work-item">VAHAGN</div>
+        </div>
 
-<div class="menu-item" onclick="showContent('contact', this)">
-contact
-</div>
+        <div id="bio" class="content">
+            <div class="work">
+                visual storyteller, actor and shadow theatre artist based in armenia.
+            </div>
+        </div>
 
-</div>
+        <div id="contact" class="content">
+            <a href="https://instagram.com/yourusername" target="_blank" class="contact-link">instagram ↗</a>
+            <a href="mailto:your@email.com" class="contact-link">email ↗</a>
+        </div>
 
-<div class="right">
-
-<div id="visual" class="content">
-
-<div class="work">BAN</div>
-<div class="work">22:1-12</div>
-<div class="work">ILUMINATOR</div>
-<div class="work">HH</div>
-
-</div>
-
-<div id="shadow" class="content">
-
-<div class="work">WORKSHOPS</div>
-<div class="work">ENKI</div>
-
-</div>
-
-<div id="other" class="content">
-
-<div class="work">VAHAGN</div>
-
-</div>
-
-<div id="bio" class="content">
-
-<div class="work">
-visual storyteller, actor and shadow theatre artist based in armenia.
-</div>
-
-</div>
-
-<div id="contact" class="content">
-
-<div class="work">
-instagram
-</div>
-
-<div class="work">
-email
-</div>
-
-</div>
-
-</div>
-
+    </div>
 </div>
 
 <script>
+    function showContent(id, element) {
+        // Թաքցնել բոլոր բաժինները
+        document.querySelectorAll('.content').forEach(content => {
+            content.classList.remove('active');
+        });
+        // Հեռացնել ակտիվ ոճը մենյուից
+        document.querySelectorAll('.menu-item').forEach(item => {
+            item.classList.remove('active');
+        });
+        // Ցուցադրել ընտրվածը
+        document.getElementById(id).classList.add('active');
+        element.classList.add('active');
+    }
 
-function showContent(id, element){
+    function toggleGallery(id) {
+        const gallery = document.getElementById(id);
+        const isOpen = gallery.classList.contains('open');
 
-document.querySelectorAll('.content').forEach(content=>{
-content.classList.remove('active');
-});
+        // Փակել բոլոր բացված սլայդերները նույն բաժնի մեջ
+        document.querySelectorAll('.gallery-container').forEach(el => {
+            el.classList.remove('open');
+        });
 
-document.querySelectorAll('.menu-item').forEach(item=>{
-item.classList.remove('active');
-});
+        // Եթե սեղմվածը բաց չէր, բացել այն
+        if (!isOpen) {
+            gallery.classList.add('open');
+        }
+    }
 
-document.getElementById(id).classList.add('active');
-
-element.classList.add('active');
-
-}
-
-function goHome(){
-
-document.querySelectorAll('.content').forEach(content=>{
-content.classList.remove('active');
-});
-
-document.querySelectorAll('.menu-item').forEach(item=>{
-item.classList.remove('active');
-});
-
-}
-
+    function goHome() {
+        document.querySelectorAll('.content').forEach(content => {
+            content.classList.remove('active');
+        });
+        document.querySelectorAll('.menu-item').forEach(item => {
+            item.classList.remove('active');
+        });
+        document.querySelectorAll('.gallery-container').forEach(el => {
+            el.classList.remove('open');
+        });
+    }
 </script>
 
 </body>
