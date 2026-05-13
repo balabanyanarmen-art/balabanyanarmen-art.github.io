@@ -1,49 +1,208 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  
-  <head>
-  <title>armen balabanyan</title>
+<title>Armen Balabanyan</title>
 
-  <style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    body {
-      background: white;
-      color: black;
-      font-family: Bowiby One;
-      padding: 30px;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Bowlby+One&display=swap" rel="stylesheet">
 
-    h1 {
-      font-weight: normal;
-    }
+<style>
 
-    a {
-      color: black;
-      text-decoration: none;
-      display: block;
-      margin-top: 30px;
-    }
+body{
+    margin:0;
+    padding:40px;
+    background:white;
+    color:black;
+    font-family:'Bowlby One', sans-serif;
+}
 
-    img {
-      width: 100%;
-      max-width: 900px;
-      margin-top: 40px;
-    }
+.container{
+    display:flex;
+    gap:80px;
+    align-items:flex-start;
+}
 
-  </style>
+.left{
+    width:40%;
+}
+
+.right{
+    width:60%;
+}
+
+.title{
+    font-size:48px;
+    line-height:1;
+    margin-bottom:50px;
+}
+
+.menu-item{
+    font-size:48px;
+    line-height:1.1;
+    margin-bottom:18px;
+    cursor:pointer;
+    text-transform:lowercase;
+    transition:0.2s;
+}
+
+.menu-item:hover{
+    opacity:0.5;
+}
+
+.active{
+    text-transform:uppercase;
+}
+
+.content{
+    display:none;
+    font-size:34px;
+    line-height:1.3;
+}
+
+.content.active{
+    display:block;
+}
+
+.work{
+    margin-bottom:20px;
+}
+
+@media(max-width:900px){
+
+.container{
+    flex-direction:column;
+}
+
+.left{
+    width:100%;
+}
+
+.right{
+    width:100%;
+}
+
+.title{
+    font-size:32px;
+}
+
+.menu-item{
+    font-size:32px;
+}
+
+.content{
+    font-size:24px;
+}
+
+}
+
+</style>
 </head>
 
 <body>
 
-<h1>armen balabanyan</h1>
+<div class="container">
 
-<a href="#">visual stories</a>
-<a href="#">shadow theatre</a>
-<a href="#">other</a>
-<a href="#">biography</a>
-<a href="#">contact</a>
-  
+<div class="left">
+
+<div class="title">
+ARMEN BALABANYAN
+</div>
+
+<div class="menu-item active" onclick="showContent('visual', this)">
+visual stories
+</div>
+
+<div class="menu-item" onclick="showContent('shadow', this)">
+shadow theatre
+</div>
+
+<div class="menu-item" onclick="showContent('other', this)">
+other
+</div>
+
+<div class="menu-item" onclick="showContent('bio', this)">
+biography
+</div>
+
+<div class="menu-item" onclick="showContent('contact', this)">
+contact
+</div>
+
+</div>
+
+<div class="right">
+
+<div id="visual" class="content active">
+
+<div class="work">BAN</div>
+<div class="work">22:1-12</div>
+<div class="work">ILUMINATOR</div>
+<div class="work">HH</div>
+
+</div>
+
+<div id="shadow" class="content">
+
+<div class="work">WORKSHOPS</div>
+<div class="work">ENKI</div>
+
+</div>
+
+<div id="other" class="content">
+
+<div class="work">VAHAGN</div>
+
+</div>
+
+<div id="bio" class="content">
+
+<div class="work">
+Visual storyteller, actor and shadow theatre artist based in Armenia.
+</div>
+
+</div>
+
+<div id="contact" class="content">
+
+<div class="work">
+instagram
+</div>
+
+<div class="work">
+email
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function showContent(id, element){
+
+document.querySelectorAll('.content').forEach(content=>{
+content.classList.remove('active');
+});
+
+document.querySelectorAll('.menu-item').forEach(item=>{
+item.classList.remove('active');
+});
+
+document.getElementById(id).classList.add('active');
+
+element.classList.add('active');
+
+}
+
+</script>
+
 </body>
 </html>
