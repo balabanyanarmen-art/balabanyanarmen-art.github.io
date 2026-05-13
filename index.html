@@ -72,16 +72,16 @@
             display: inline-block;
             margin-bottom: 10px;
         }
-..slider-window {
-    display: none;
+.slider-window {
+    display: none; /* Սկզբում թաքնված */
     width: 100%;
-    /* Այստեղ դիր այն լայնությունը, որը քեզ դուր է գալիս (օրինակ՝ 500px) */
-    max-width: 500px; 
+    max-width: 500px; /* Սա առավելագույն լայնությունն է */
     margin-top: 15px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    border: 1px solid #f0f0f0; /* Նուրբ եզրագիծ, որ պատուհանը երևա */
+    position: relative;
+    /* Հեռացրել ենք ֆիքսված height-ը */
 }
 
 .slider-window.open {
@@ -89,15 +89,14 @@
 }
 
 .slider-window img {
-    /* Նկարի առավելագույն բարձրությունը՝ էկրանի կեսից մի քիչ ավել */
-    max-height: 500px; 
-    width: 100%;
-    height: auto;
+    max-height: 500px;
+    width: 100%; /* Նկարը կզբաղեցնի պատուհանի ամբողջ լայնությունը */
+    height: auto; /* Բարձրությունը կհարմարվի նկարի համամասնությանը */
     display: block;
     flex-shrink: 0;
     scroll-snap-align: center;
-    object-fit: contain; /* Սա թույլ չի տա, որ նկարը կտրվի */
-    background: #fff;
+    object-fit: contain;
+}
 }
 
 }
