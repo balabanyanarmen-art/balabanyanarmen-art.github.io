@@ -229,21 +229,21 @@
             </div>
         </div>
 
-                <div id="shadow" class="content">
+        <div id="shadow" class="content">
             <div class="work-item">
                 <div class="work-title" onclick="toggleEnkiDetails()">enki</div>
                 
                 <div id="enki-details" style="display: none; margin-top: 20px;">
                     
-                    <div class="slider-info" style="display:block; margin-bottom: 30px; max-width: 600px;">
+                    <div class="slider-info" style="display:block; margin-bottom: 30px; max-width: 600px; color: inherit; opacity: 1;">
                         “Enki” was my first collaborative shadow theatre project, created with actors Sona Kankanyan and Mher Alebegyan.<br>
                         In this work, I explored combining the traditional form of shadow theatre with contemporary visual and technical elements, including colored animated backgrounds, recorded narration, and sound design.<br><br>
                         Throughout the performance, live theatre, shadow puppets, projection, and sound function together as a single system, creating an animated audiovisual narrative and atmosphere.
                     </div>
 
                     <div class="work-item" style="margin-left: 20px;">
-                        <div class="slider-info" style="display:block; text-transform: uppercase;">“Push”</div>
-                        <div class="slider-info" style="display:block; margin-top: 0; margin-bottom: 10px; opacity: 0.7;">Lusik Aguletsi House-Museum</div>
+                        <div class="slider-info" style="display:block; text-transform: uppercase; color: inherit; opacity: 1;">“Push”</div>
+                        <div class="slider-info" style="display:block; margin-top: 0; margin-bottom: 10px; opacity: 0.7; color: inherit;">Lusik Aguletsi House-Museum</div>
                         
                         <div class="slider-window open">
                             <img src="push/poster.jpg" alt="Push Poster">
@@ -253,8 +253,8 @@
                     </div>
 
                     <div class="work-item" style="margin-left: 20px; margin-top: 30px;">
-                        <div class="slider-info" style="display:block; text-transform: uppercase;">“Gikor’s Dream”</div>
-                        <div class="slider-info" style="display:block; margin-top: 0; margin-bottom: 10px; opacity: 0.7;">Yeghishe Charents House-Museum</div>
+                        <div class="slider-info" style="display:block; text-transform: uppercase; color: inherit; opacity: 1;">“Gikor’s Dream”</div>
+                        <div class="slider-info" style="display:block; margin-top: 0; margin-bottom: 10px; opacity: 0.7; color: inherit;">Yeghishe Charents House-Museum</div>
                         
                         <div class="slider-window open">
                             <img src="gikor/poster.jpg" alt="Gikor's Dream Poster">
@@ -264,8 +264,8 @@
                     </div>
 
                     <div class="work-item" style="margin-left: 20px; margin-top: 30px;">
-                        <div class="slider-info" style="display:block; text-transform: uppercase;">“Tork Angegh”</div>
-                        <div class="slider-info" style="display:block; margin-top: 0; margin-bottom: 10px; opacity: 0.7;">
+                        <div class="slider-info" style="display:block; text-transform: uppercase; color: inherit; opacity: 1;">“Tork Angegh”</div>
+                        <div class="slider-info" style="display:block; margin-top: 0; margin-bottom: 10px; opacity: 0.7; color: inherit;">
                             My first shadow theatre performance<br>
                             Folk Arts Museum
                         </div>
@@ -280,7 +280,6 @@
                 </div> </div>
         </div>
 
-
         <div id="bio" class="content">
             visual storyteller, actor and shadow theatre artist based in armenia.
         </div>
@@ -292,12 +291,13 @@
 </div>
 
 <script>
+    // Ֆունկցիա՝ հիմնական բաժինները փոխելու համար
     function showContent(id, element) {
         // 1. Թաքցնել բոլոր բաժինները
         document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
         document.querySelectorAll('.menu-item').forEach(m => m.classList.remove('active'));
 
-        // 2. Ավելացնել ակտիվ դասը ընտրվածին
+        // 2. Ակտիվացնել ընտրվածը
         document.getElementById(id).classList.add('active');
         element.classList.add('active');
 
@@ -307,13 +307,16 @@
         } else {
             document.body.classList.remove('dark-mode');
         }
+        
+        // Փակել enki-ի մանրամասները այլ բաժին անցնելիս
+        document.getElementById('enki-details').style.display = 'none';
     }
 
+    // Ֆունկցիա՝ վիզուալ պատմությունների սլայդերները բացել/փակելու համար
     function toggleSlider(id) {
         const slider = document.getElementById(id);
         const isOpen = slider.classList.contains('open');
         
-        // Փակել բոլոր սլայդերները նախքան նորը բացելը
         document.querySelectorAll('.slider-window').forEach(s => s.classList.remove('open'));
         
         if (!isOpen) {
@@ -321,24 +324,30 @@
         }
     }
 
-    function goHome() {
-        // Հեռացնել բոլոր ակտիվ դասերը և փակել սլայդերները
-        document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
-        document.querySelectorAll('.menu-item').forEach(m => m.classList.remove('active'));
-        document.querySelectorAll('.slider-window').forEach(s => s.classList.remove('open'));
-        // Հանել մութ ռեժիմը
-        document.body.classList.remove('dark-mode');
-            function toggleEnkiDetails() {
+    // Ֆունկցիա՝ Enki-ի տեքստը և սլայդերները բացել/փակելու համար
+    function toggleEnkiDetails() {
         const details = document.getElementById('enki-details');
-        if (details.style.display === 'none') {
+        if (details.style.display === 'none' || details.style.display === '') {
             details.style.display = 'block';
         } else {
             details.style.display = 'none';
         }
     }
-        document.getElementById('enki-details').style.display = 'none';
-    }
 
+    // Ֆունկցիա՝ Գլխավոր էջ վերադառնալու համար
+    function goHome() {
+        // Հեռացնել ակտիվ դասերը
+        document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
+        document.querySelectorAll('.menu-item').forEach(m => m.classList.remove('active'));
+        
+        // Փակել բոլոր վիզուալ սլայդերները
+        document.querySelectorAll('#visual .slider-window').forEach(s => s.classList.remove('open'));
+        
+        // Հանել մութ ռեժիմը
+        document.body.classList.remove('dark-mode');
+        
+        // Փակել enki-ի մանրամասները
+        document.getElementById('enki-details').style.display = 'none';
     }
 </script>
 
