@@ -15,7 +15,10 @@
             color: black;
             font-family: 'Bowlby One', sans-serif;
         }
-
+body {
+    transition: background-color 0.8s ease, color 0.8s ease;
+    /* ... մնացած քո ունեցած կոդը ... */
+}
         .container {
             display: flex;
             gap: 80px;
@@ -121,6 +124,25 @@
             .left, .right { width: 100%; }
             .slider-window { height: 300px; }
         }
+        /* Սա կփոխի ամբողջ էջի գույները */
+body.dark-mode {
+    background-color: black;
+    color: white;
+}
+
+/* Որպեսզի հղումները կամ այլ էլեմենտները նույնպես սպիտակ դառնան */
+body.dark-mode a, 
+body.dark-mode .menu-item, 
+body.dark-mode .title,
+body.dark-mode .work-title {
+    color: white;
+}
+
+/* Եթե ուզում ես, որ մութ ժամանակ եզրագծերը նույնպես փոխվեն */
+body.dark-mode .slider-window {
+    border: 1px solid #333;
+}
+    
     </style>
 </head>
 <body>
@@ -216,10 +238,28 @@
 
 <script>
     function showContent(id, element) {
-        document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
-        document.querySelectorAll('.menu-item').forEach(m => m.classList.remove('active'));
-        document.getElementById(id).classList.add('active');
-        element.classList.add('active');
+    // 1. Թաքցնել բոլոր բաժինները
+    document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
+    document.querySelectorAll('.menu-item').forEach(m => m.classList.remove('active'));
+
+    // 2. Ավելացնել ակտիվ դասը ընտրվածին
+    document.getElementById(id).classList.add('active');
+    element.classList.add('active');
+
+    // 3. Մթնոլորտի փոփոխություն (Dark Mode)
+    if (id === 'shadow') {
+        document.body.classList.add('dark-mode');
+    } else {
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+// Տուն վերադառնալիս նույնպես հանել մութ ռեժիմը
+function goHome() {
+    document.querySelectorAll('.content, .menu-item, .slider-window').forEach(el => el.classList.remove('active', 'open'));
+    document.body.classList.remove('dark-mode');
+}
+
     }
 
     function toggleSlider(id) {
