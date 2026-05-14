@@ -328,6 +328,17 @@
         document.querySelectorAll('.slider-window').forEach(s => s.classList.remove('open'));
         // Հանել մութ ռեժիմը
         document.body.classList.remove('dark-mode');
+            function toggleEnkiDetails() {
+        const details = document.getElementById('enki-details');
+        if (details.style.display === 'none') {
+            details.style.display = 'block';
+        } else {
+            details.style.display = 'none';
+        }
+    }
+        document.getElementById('enki-details').style.display = 'none';
+    }
+
     }
 </script>
 
