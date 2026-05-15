@@ -332,7 +332,10 @@
         document.querySelectorAll('#visual .slider-window').forEach(s => s.classList.remove('open'));
         if (!isOpen) slider.classList.add('open');
     }
-
+    function toggleWorkshopDetails() {
+        const details = document.getElementById('workshop-details');
+        details.style.display = (details.style.display === 'none' || details.style.display === '') ? 'block' : 'none';
+    }
     function toggleEnkiDetails() {
         const details = document.getElementById('enki-details');
         details.style.display = (details.style.display === 'none' || details.style.display === '') ? 'block' : 'none';
@@ -343,6 +346,7 @@
         document.querySelectorAll('.slider-window').forEach(s => s.classList.remove('open'));
         document.body.classList.remove('dark-mode');
         document.getElementById('enki-details').style.display = 'none';
+        document.getElementById('workshop-details').style.display = 'none';
     }
 </script>
 </body>
