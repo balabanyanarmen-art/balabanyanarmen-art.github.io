@@ -308,28 +308,33 @@
 
 <div id="other" class="content">
     <div class="work-item">
-        <div class="work-title" onclick="toggleSlider('vahagn-slider')">vahagn</div>
+        <div class="work-title" onclick="toggleVahagn()">vahagn</div>
         
         <div id="vahagn-slider" class="slider-window">
             <video src="videos/vahagn-video.mp4" autoplay loop muted playsinline style="max-height: 500px; max-width: 100%; width: 100%; margin-right: 10px; object-fit: contain; scroll-snap-align: center; flex-shrink: 0; display: block;"></video>
             <img src="images/vahagn1.jpg" alt="1">
         </div>
-        <div class="slider-info">← swipe to view →</div>
+        
+        <div id="vahagn-details" style="display: none;">
+            <div class="slider-info" style="display: block;">← swipe to view →</div>
 
-        <div style="display: block; margin-top: 25px; margin-bottom: 25px; max-width: 600px; font-size: 12px; line-height: 1.5; opacity: 0.8; text-transform: none;">
-            “Vahagn” is a mythological poem inspired by Mesopotamian mythology and the writings of Movses Khorenatsi and Agathangelos.<br><br>
-            Through this project, I wanted to explore the figure of Vahagn — a character who has remained a symbol of war, fire, and the sun in Armenian mythology for centuries. I was interested in reimagining his story as a complete narrative with a beginning, transformation, and ending.<br><br>
-            All illustrations in the book are my own.<br>
-            The image of Vahagn was inspired by Rafael Israelyan’s 1962 sculpture.
+            <div style="display: block; margin-top: 25px; margin-bottom: 25px; max-width: 600px; font-size: 12px; line-height: 1.5; opacity: 0.8; text-transform: none;">
+                “Vahagn” is a mythological poem inspired by Mesopotamian mythology and the writings of Movses Khorenatsi and Agathangelos.<br><br>
+                Through this project, I wanted to explore the figure of Vahagn — a character who has remained a symbol of war, fire, and the sun in Armenian mythology for centuries. I was interested in reimagining his story as a complete narrative with a beginning, transformation, and ending.<br><br>
+                All illustrations in the book are my own.<br>
+                The image of Vahagn was inspired by Rafael Israelyan’s 1962 sculpture.
+            </div>
+
+            <div style="margin-top: 15px; margin-bottom: 20px;">
+                <a href="pdf/vahagn-book.pdf" download style="color: inherit; text-decoration: underline; font-size: 14px;">
+                    Download Vahagn PDF Book ↙
+                </a>
+            </div>
         </div>
 
-        <div style="margin-top: 15px;">
-            <a href="pdf/vahagn-book.pdf" download style="color: inherit; text-decoration: underline; font-size: 14px;">
-                Download Vahagn PDF Book ↙
-            </a>
-        </div>
     </div>
 </div>
+
         
         <div id="bio" class="content">visual storyteller, actor and shadow theatre artist based in armenia.</div>
         <div id="contact" class="content"><a href="mailto:email@example.com" style="color:inherit; text-decoration:none;">email ↗</a></div>
@@ -365,7 +370,19 @@
         const details = document.getElementById('enki-details');
         details.style.display = (details.style.display === 'none' || details.style.display === '') ? 'block' : 'none';
     }
-
+function toggleVahagn() {
+    // 1. Բացում կամ փակում ենք սլայդերը
+    const slider = document.getElementById('vahagn-slider');
+    slider.classList.toggle('open');
+    
+    // 2. Բացում կամ փակում ենք տեքստն ու PDF-ը
+    const details = document.getElementById('vahagn-details');
+    if (details.style.display === 'none' || details.style.display === '') {
+        details.style.display = 'block';
+    } else {
+        details.style.display = 'none';
+    }
+}
     function goHome() {
         document.querySelectorAll('.content, .menu-item').forEach(el => el.classList.remove('active'));
         document.querySelectorAll('.slider-window').forEach(s => s.classList.remove('open'));
