@@ -252,22 +252,57 @@
         </div>
         
         <div id="shadow" class="content">
-           <div class="work-item">
-    <div class="work-title" onclick="toggleWorkshopDetails()">workshop</div>
-    
-    <div id="workshop-details" style="display: none; margin-top: 20px;"><div style="display: block; margin-top: 25px; margin-bottom: 25px; max-width: 600px; font-size: 12px; line-height: 1.5; opacity: 0.8; text-transform: none;">
+    <div class="work-item">
+        <!-- Վերնագիրը, որին սեղմելով բացվում է Workshop-ը -->
+        <div class="work-title" onclick="toggleWorkshopDetails()">workshop</div>
+        
+        <!-- Այս բլոկը սկզբում թաքնված է (display: none) -->
+        <div id="workshop-details" style="display: none; margin-top: 20px;">
+            
+            <!-- Նկարագրության տեքստը -->
+            <div style="display: block; margin-top: 15px; margin-bottom: 25px; max-width: 600px; font-size: 12px; line-height: 1.5; opacity: 0.8; text-transform: none;">
+                My goal is to travel across all regions of Armenia where there is interest in shadow theatre, creating spaces for exchange through workshops and performances.<br><br>
+                I want to learn from children and share methods of shadow puppet making, the art of storytelling, as well as ways of working with materials, light, and shadow.
+            </div>
 
-            My goal is to travel across all regions of Armenia where there is interest in shadow theatre, creating spaces for exchange through workshops and performances.<br>
-            I want to learn from children and share methods of shadow puppet making, the art of storytelling, as well as ways of working with materials, light, and shadow.
-        </div>
+            <!-- ԱՌԱՋԻՆ ՍԼԱՅԴԵՐ. Pambak/Lori -->
+            <div class="work-item" style="margin-left: 0; margin-bottom: 40px;">
+                <div class="slider-info" style="display:block; text-transform: uppercase; color: inherit; opacity: 1;">Pambak/Lori</div>
+                <div class="slider-info" style="display:block; margin-top: 0; margin-bottom: 10px; opacity: 0.7; color: inherit;">Sponsored by the United Nations</div>
+                
+                <div class="slider-window">
+                    <img src="p/poster.jpg" alt="pp">
+                    <img src="p/image1.jpg" alt="1">
+                    <img src="p/image2.jpg" alt="2">
+                    <img src="p/image3.jpg" alt="3">
+                    <img src="p/image4.jpg" alt="4">
+                    <img src="p/image5.jpg" alt="5">
+                    <img src="p/image6.jpg" alt="6">
+                    <img src="p/image7.jpg" alt="7">
+                    <img src="p/image8.jpg" alt="8">
+                </div>
+                <div class="slider-info">← swipe to view →</div>
+            </div>
 
-        <div class="work-item" style="margin-left: 20px;">
-            <div class="slider-info" style="display:block; text-transform: uppercase; color: inherit; opacity: 1;">Pambak/Lori</div>
-            <div class="slider-info" style="display:block; margin-top: 0; margin-bottom: 10px; opacity: 0.7; color: inherit;">Sponsored by the United Nations</div>
-            <div class="slider-window">
-                <img src="p/poster.jpg" alt="pp"><img src="p/image1.jpg" alt="1"><img src="p/image2.jpg" alt="2"><img src="p/image3.jpg" alt="3"><img src="p/image4.jpg" alt="4"><img src="p/image5.jpg" alt="5"><img src="p/image6.jpg" alt="6"><img src="p/image7.jpg" alt="7"><img src="p/image8.jpg" alt="8"></div>
-        </div>
-    </div> </div> 
+            <!-- ԵՐԿՐՈՐԴ ՍԼԱՅԴԵՐ (ՆՈՐ). Gegharkunik/Gavar -->
+            <div class="work-item" style="margin-left: 0;">
+                <div class="slider-info" style="display:block; text-transform: uppercase; color: inherit; opacity: 1;">Gegharkunik/Gavar</div>
+                <!-- Եթե հովանավոր չկա, այս ներքևի տողը կարող ես հեռացնել կամ փոխել -->
+                <div class="slider-info" style="display:block; margin-top: 0; margin-bottom: 10px; opacity: 0.7; color: inherit;">Sponsored by ...</div>
+                
+                <div class="slider-window">
+                    <!-- Գավառի նկարների հղումները (փոխիր ըստ քո նկարների անունների ու պապկայի) -->
+                    <img src="gavar/poster.jpg" alt="poster">
+                    <img src="gavar/image1.jpg" alt="1">
+                    <img src="gavar/image2.jpg" alt="2">
+                    <img src="gavar/image3.jpg" alt="3">
+                </div>
+                <div class="slider-info">← swipe to view →</div>
+            </div>
+
+        </div> <!-- /workshop-details-ի փակում -->
+    </div> <!-- /work-item-ի փակում -->
+</div> <!-- /shadow-ի փակում -->
             
                     <div class="work-item">
                 <div class="work-title" onclick="toggleEnkiDetails()">enki</div>
