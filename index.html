@@ -92,13 +92,8 @@
             overflow-x: auto;
             scroll-snap-type: x mandatory;
             scroll-behavior: smooth;
-            border: none; /* Հեռացվել է border-ը */
-            background: transparent; /* Հեռացվել է սպիտակ ֆոնը */
-        }
-
-        /* Shadow բաժնի սլայդերները միշտ բաց են, երբ Enki-ն բաց է */
-        #shadow .slider-window {
-            display: flex !important;
+            border: none;
+            background: transparent;
         }
 
         .slider-window.open {
@@ -108,7 +103,7 @@
         .slider-window img {
             max-height: 500px;
             max-width: 100%;
-            width: auto; /* auto-ն հեռացնում է սպիտակ կողքերը */
+            width: auto;
             height: auto;
             display: block;
             flex-shrink: 0;
@@ -130,33 +125,31 @@
             max-width: 500px;
         }
 
-        .slider-window.open + .slider-info,
-        #shadow .slider-window + .slider-info {
+        .slider-window.open + .slider-info {
             display: block;
         }
 
         @media(max-width: 900px) {
-    .container { 
-        flex-direction: column; 
-        gap: 40px; 
-    }
-    
-    .left { 
-        width: 100%; 
-        position: relative; /* Sticky-ն փոխում ենք relative-ի */
-        top: 0;             /* Վերևից հեռավորությունը հանում ենք */
-        margin-bottom: 20px;
-    }
-    
-    .right { 
-        width: 100%; 
-    }
+            .container { 
+                flex-direction: column; 
+                gap: 40px; 
+            }
+            
+            .left { 
+                width: 100%; 
+                position: relative;
+                top: 0;
+                margin-bottom: 20px;
+            }
+            
+            .right { 
+                width: 100%; 
+            }
 
-    .title {
-        margin-bottom: 20px; /* Փոքրացնում ենք հեռավորությունը մոբայլում */
-    }
-}
-
+            .title {
+                margin-bottom: 20px;
+            }
+        }
 
         /* Dark Mode */
         body.dark-mode {
@@ -185,8 +178,9 @@
     </div>
 
     <div class="right">
+        <!-- VISUAL STORIES -->
         <div id="visual" class="content">
-                          <div class="work-item">
+            <div class="work-item">
                 <div class="work-title" onclick="toggleSlider('b-slider')">ban</div>
                 <div id="b-slider" class="slider-window">
                     <img src="images/b1.jpg" alt="1">
@@ -251,65 +245,58 @@
             </div>
         </div>
         
+        <!-- SHADOW THEATRE -->
         <div id="shadow" class="content">
-    <div class="work-item">
-        <!-- Վերնագիրը, որին սեղմելով բացվում է Workshop-ը -->
-        <div class="work-title" onclick="toggleWorkshopDetails()">workshop</div>
-        
-        <!-- Այս բլոկը սկզբում թաքնված է (display: none) -->
-        <div id="workshop-details" style="display: none; margin-top: 20px;">
-            
-            <!-- Նկարագրության տեքստը -->
-            <div style="display: block; margin-top: 15px; margin-bottom: 25px; max-width: 600px; font-size: 12px; line-height: 1.5; opacity: 0.8; text-transform: none;">
-                My goal is to travel across all regions of Armenia where there is interest in shadow theatre, creating spaces for exchange through workshops and performances.<br><br>
-                I want to learn from children and share methods of shadow puppet making, the art of storytelling, as well as ways of working with materials, light, and shadow.
-            </div>
-
-            <!-- ԱՌԱՋԻՆ ՍԼԱՅԴԵՐ. Pambak/Lori -->
-            <div class="work-item" style="margin-left: 0; margin-bottom: 40px;">
-                <div class="slider-info" style="display:block; text-transform: uppercase; color: inherit; opacity: 1;">Pambak/Lori</div>
-                <div class="slider-info" style="display:block; margin-top: 0; margin-bottom: 10px; opacity: 0.7; color: inherit;">Sponsored by the United Nations</div>
+            <!-- WORKSHOP -->
+            <div class="work-item">
+                <div class="work-title" onclick="toggleWorkshopDetails()">workshop</div>
                 
-                <div class="slider-window">
-                    <img src="p/poster.jpg" alt="pp">
-                    <img src="p/image1.jpg" alt="1">
-                    <img src="p/image2.jpg" alt="2">
-                    <img src="p/image3.jpg" alt="3">
-                    <img src="p/image4.jpg" alt="4">
-                    <img src="p/image5.jpg" alt="5">
-                    <img src="p/image6.jpg" alt="6">
-                    <img src="p/image7.jpg" alt="7">
-                    <img src="p/image8.jpg" alt="8">
+                <div id="workshop-details" style="display: none; margin-top: 20px;">
+                    <div style="display: block; margin-top: 15px; margin-bottom: 25px; max-width: 600px; font-size: 12px; line-height: 1.5; opacity: 0.8; text-transform: none;">
+                        My goal is to travel across all regions of Armenia where there is interest in shadow theatre, creating spaces for exchange through workshops and performances.<br><br>
+                        I want to learn from children and share methods of shadow puppet making, the art of storytelling, as well as ways of working with materials, light, and shadow.
+                    </div>
+
+                    <div class="work-item" style="margin-left: 0; margin-bottom: 40px;">
+                        <div class="slider-info" style="display:block; text-transform: uppercase; color: inherit; opacity: 1;">Pambak/Lori</div>
+                        <div class="slider-info" style="display:block; margin-top: 0; margin-bottom: 10px; opacity: 0.7; color: inherit;">Sponsored by the United Nations</div>
+                        
+                        <div class="slider-window open">
+                            <img src="p/poster.jpg" alt="pp">
+                            <img src="p/image1.jpg" alt="1">
+                            <img src="p/image2.jpg" alt="2">
+                            <img src="p/image3.jpg" alt="3">
+                            <img src="p/image4.jpg" alt="4">
+                            <img src="p/image5.jpg" alt="5">
+                            <img src="p/image6.jpg" alt="6">
+                            <img src="p/image7.jpg" alt="7">
+                            <img src="p/image8.jpg" alt="8">
+                        </div>
+                        <div class="slider-info" style="display:block;">← swipe to view →</div>
+                    </div>
+
+                    <div class="work-item" style="margin-left: 0;">
+                        <div class="slider-info" style="display:block; text-transform: uppercase; color: inherit; opacity: 1;">Gegharkunik/Gavar</div>
+                        <div class="slider-info" style="display:block; margin-top: 0; margin-bottom: 10px; opacity: 0.7; color: inherit;">Sponsored by ...</div>
+                        
+                        <div class="slider-window open">
+                            <img src="gavar/poster.jpg" alt="poster">
+                            <img src="gavar/image1.jpg" alt="1">
+                            <img src="gavar/image2.jpg" alt="2">
+                            <img src="gavar/image3.jpg" alt="3">
+                        </div>
+                        <div class="slider-info" style="display:block;">← swipe to view →</div>
+                    </div>
                 </div>
-                <div class="slider-info">← swipe to view →</div>
             </div>
 
-            <!-- ԵՐԿՐՈՐԴ ՍԼԱՅԴԵՐ (ՆՈՐ). Gegharkunik/Gavar -->
-            <div class="work-item" style="margin-left: 0;">
-                <div class="slider-info" style="display:block; text-transform: uppercase; color: inherit; opacity: 1;">Gegharkunik/Gavar</div>
-                <!-- Եթե հովանավոր չկա, այս ներքևի տողը կարող ես հեռացնել կամ փոխել -->
-                <div class="slider-info" style="display:block; margin-top: 0; margin-bottom: 10px; opacity: 0.7; color: inherit;">Sponsored by ...</div>
-                
-                <div class="slider-window">
-                    <!-- Գավառի նկարների հղումները (փոխիր ըստ քո նկարների անունների ու պապկայի) -->
-                    <img src="gavar/poster.jpg" alt="poster">
-                    <img src="gavar/image1.jpg" alt="1">
-                    <img src="gavar/image2.jpg" alt="2">
-                    <img src="gavar/image3.jpg" alt="3">
-                </div>
-                <div class="slider-info">← swipe to view →</div>
-            </div>
-
-        </div> <!-- /workshop-details-ի փակում -->
-    </div> <!-- /work-item-ի փակում -->
-</div> <!-- /shadow-ի փակում -->
-            
-                    <div class="work-item">
+            <!-- ENKI -->
+            <div class="work-item">
                 <div class="work-title" onclick="toggleEnkiDetails()">enki</div>
+                
                 <div id="enki-details" style="display: none; margin-top: 20px;">
                     <div style="display: block; margin-top: 25px; margin-bottom: 25px; max-width: 600px; font-size: 12px; line-height: 1.5; opacity: 0.8; text-transform: none;">
-
-                 “Enki” was my first collaborative shadow theatre project, created with actors Sona Kankanyan and Mher Alebegyan.<br>
+                        “Enki” was my first collaborative shadow theatre project, created with actors Sona Kankanyan and Mher Alebegyan.<br>
                         In this work, I explored combining the traditional form of shadow theatre with contemporary visual and technical elements, including colored animated backgrounds, recorded narration, and sound design.<br><br>
                         Throughout the performance, live theatre, shadow puppets, projection, and sound function together as a single system, creating an animated audiovisual narrative and atmosphere.
                     </div>
@@ -317,95 +304,129 @@
                     <div class="work-item" style="margin-left: 20px;">
                         <div class="slider-info" style="display:block; text-transform: uppercase; color: inherit; opacity: 1;">“Push”</div>
                         <div class="slider-info" style="display:block; margin-top: 0; margin-bottom: 10px; opacity: 0.7; color: inherit;">Lusik Aguletsi House-Museum</div>
-                        <div class="slider-window">
-                            <img src="push/poster.jpg" alt="Push Poster"><img src="push/image1.jpg" alt="1"><img src="push/image2.jpg" alt="2"><img src="push/image3.jpg" alt="3">
+                        <div class="slider-window open">
+                            <img src="push/poster.jpg" alt="Push Poster">
+                            <img src="push/image1.jpg" alt="1">
+                            <img src="push/image2.jpg" alt="2">
+                            <img src="push/image3.jpg" alt="3">
                         </div>
+                        <div class="slider-info" style="display:block;">← swipe to view →</div>
                     </div>
 
                     <div class="work-item" style="margin-left: 20px; margin-top: 30px;">
                         <div class="slider-info" style="display:block; text-transform: uppercase; color: inherit; opacity: 1;">“Gikor’s Dream”</div>
                         <div class="slider-info" style="display:block; margin-top: 0; margin-bottom: 10px; opacity: 0.7; color: inherit;">Yeghishe Charents House-Museum</div>
-                        <div class="slider-window">
-                             <video src="videos/gikor-video.mp4" autoplay loop muted playsinline style="max-height: 500px; max-width: 100%; width: 100%; margin-right: 10px; object-fit: contain; scroll-snap-align: center; flex-shrink: 0; display: block;"></video>
-            <img src="gikor/poster.jpg" alt="Gikor Poster"><img src="gikor/image1.jpg" alt="1"><img src="gikor/image2.jpg" alt="2">
+                        <div class="slider-window open">
+                            <video src="videos/gikor-video.mp4" autoplay loop muted playsinline style="max-height: 500px; max-width: 100%; width: 100%; margin-right: 10px; object-fit: contain; scroll-snap-align: center; flex-shrink: 0; display: block;"></video>
+                            <img src="gikor/poster.jpg" alt="Gikor Poster">
+                            <img src="gikor/image1.jpg" alt="1">
+                            <img src="gikor/image2.jpg" alt="2">
                         </div>
+                        <div class="slider-info" style="display:block;">← swipe to view →</div>
                     </div>
 
                     <div class="work-item" style="margin-left: 20px; margin-top: 30px;">
                         <div class="slider-info" style="display:block; text-transform: uppercase; color: inherit; opacity: 1;">“Tork Angegh”</div>
                         <div class="slider-info" style="display:block; margin-top: 0; margin-bottom: 10px; opacity: 0.7; color: inherit;">My first shadow theatre performance<br>Folk Arts Museum</div>
-                        <div class="slider-window">
-                            <img src="tork/poster.jpg" alt="Tork Poster"><img src="tork/image1.jpg" alt="1"><img src="tork/image2.jpg" alt="2">
+                        <div class="slider-window open">
+                            <img src="tork/poster.jpg" alt="Tork Poster">
+                            <img src="tork/image1.jpg" alt="1">
+                            <img src="tork/image2.jpg" alt="2">
                         </div>
+                        <div class="slider-info" style="display:block;">← swipe to view →</div>
                     </div>
                 </div> 
             </div>
         </div>
 
-<div id="other" class="content">
-    <div class="work-item">
-        <div class="work-title" onclick="toggleVahagn()">vahagn</div>
-        
-        <div id="vahagn-slider" class="slider-window">
-            <video src="videos/vahagn-video.mp4" autoplay loop muted playsinline style="max-height: 500px; max-width: 100%; width: 100%; margin-right: 10px; object-fit: contain; scroll-snap-align: center; flex-shrink: 0; display: block;"></video>
-            <img src="images/vahagn1.jpg" alt="1">
-        </div>
-        
-        <div id="vahagn-details" style="display: none;">
-            <div class="slider-info" style="display: block;">← swipe to view →</div>
+        <!-- OTHER -->
+        <div id="other" class="content">
+            <div class="work-item">
+                <div class="work-title" onclick="toggleVahagn()">vahagn</div>
+                
+                <div id="vahagn-slider" class="slider-window">
+                    <video src="videos/vahagn-video.mp4" autoplay loop muted playsinline style="max-height: 500px; max-width: 100%; width: 100%; margin-right: 10px; object-fit: contain; scroll-snap-align: center; flex-shrink: 0; display: block;"></video>
+                    <img src="images/vahagn1.jpg" alt="1">
+                </div>
+                
+                <div id="vahagn-details" style="display: none;">
+                    <div class="slider-info" style="display: block;">← swipe to view →</div>
 
-            <div style="display: block; margin-top: 25px; margin-bottom: 25px; max-width: 600px; font-size: 12px; line-height: 1.5; opacity: 0.8; text-transform: none;">
-                “Vahagn” is a mythological poem inspired by Mesopotamian mythology and the writings of Movses Khorenatsi and Agathangelos.<br><br>
-                Through this project, I wanted to explore the figure of Vahagn — a character who has remained a symbol of war, fire, and the sun in Armenian mythology for centuries. I was interested in reimagining his story as a complete narrative with a beginning, transformation, and ending.<br><br>
-                All illustrations in the book are my own.<br>
-                The image of Vahagn was inspired by Rafael Israelyan’s 1962 sculpture.
+                    <div style="display: block; margin-top: 25px; margin-bottom: 25px; max-width: 600px; font-size: 12px; line-height: 1.5; opacity: 0.8; text-transform: none;">
+                        “Vahagn” is a mythological poem inspired by Mesopotamian mythology and the writings of Movses Khorenatsi and Agathangelos.<br><br>
+                        Through this project, I wanted to explore the figure of Vahagn — a character who has remained a symbol of war, fire, and the sun in Armenian mythology for centuries. I was interested in reimagining his story as a complete narrative with a beginning, transformation, and ending.<br><br>
+                        All illustrations in the book are my own.<br>
+                        The image of Vahagn was inspired by Rafael Israelyan’s 1962 sculpture.
+                    </div>
+
+                    <div style="margin-top: 15px; margin-bottom: 20px;">
+                        <a href="pdf/vahagn-book.pdf" download style="color: inherit; text-decoration: underline; font-size: 14px;">
+                            Download Vahagn PDF Book ↙
+                        </a>
+                    </div>
+                </div>
             </div>
-
-            <div style="margin-top: 15px; margin-bottom: 20px;">
-                <a href="pdf/vahagn-book.pdf" download style="color: inherit; text-decoration: underline; font-size: 14px;">
-                    Download Vahagn PDF Book ↙
-                </a>
-            </div>
         </div>
 
-    </div>
-</div>
-
-        
-        <div id="bio" class="content">actor, visual storyteller, and shadow theatre artist based in armenia.<br><br><br>
-    
+        <!-- BIOGRAPHY -->
+        <div id="bio" class="content">
+            actor, visual storyteller, and shadow theatre artist based in armenia.<br><br><br>
+            
             <div style="display: block; margin-top: 25px; margin-bottom: 25px; max-width: 600px; font-size: 13px; line-height: 1.5; opacity: 0.8; text-transform: none;"> 
                 I am an actor. In my practice, I combine performative art, storytelling techniques, and visual thinking. The merging of these elements creates a space where I can freely explore my sensations and emotional states.<br><br>
-            Through visual storytelling, I release my spiritual-sensory field from events and influences that occur beyond my control. Digital drawing allows me, in a dark space on a luminous screen, to leave traces of the feelings that disturb me through the movement of my hand, and to give form to my inner sensory world.<br><br>
-The texts I create are impulsive codifications of my sensations.<br><br>
-Shadow theatre is a performative space where story, image, and sound remain in shadow. The shadow is intangible, immaterial, non-corporeal — a safe space.<br><br>
-Why shadow theatre?<br>
-            I am an actor by profession, and shadows are images. I have been drawing since childhood. It was a safe space for me, where I could express my joys, anxieties, and curiosities.<br><br>
-Today, wandering through different branches of art, I am searching for myself and my true sensations. I am discovering my spiritual-sensory world, shaped by external factors and influences.<br><br>
-By circumstance, I am Armen Balabanyan.<br>
-            By circumstance, in this body.<br>
-            By circumstance, in this space.            
+                Through visual storytelling, I release my spiritual-sensory field from events and influences that occur beyond my control. Digital drawing allows me, in a dark space on a luminous screen, to leave traces of the feelings that disturb me through the movement of my hand, and to give form to my inner sensory world.<br><br>
+                The texts I create are impulsive codifications of my sensations.<br><br>
+                Shadow theatre is a performative space where story, image, and sound remain in shadow. The shadow is intangible, immaterial, non-corporeal — a safe space.<br><br>
+                Why shadow theatre?<br>
+                I am an actor by profession, and shadows are images. I have been drawing since childhood. It was a safe space for me, where I could express my joys, anxieties, and curiosities.<br><br>
+                Today, wandering through different branches of art, I am searching for myself and my true sensations. I am discovering my spiritual-sensory world, shaped by external factors and influences.<br><br>
+                By circumstance, I am Armen Balabanyan.<br>
+                By circumstance, in this body.<br>
+                By circumstance, in this space.            
+            </div>
         </div>
-             </div>
         
+        <!-- CONTACT -->
         <div id="contact" class="content">
-    <div style="margin-bottom: 12px;">
-        <a href="mailto:balabanyanarmen@gmail.com" style="color: inherit; text-decoration: none;">email ↗</a>
-    </div>
-    
-    <div>
-        <a href="https://www.instagram.com/armenbalabanyan?igsh=MTVjem42MTQ1aXd1Yg%3D%3D&utm_source=qr" target="_blank" style="color: inherit; text-decoration: none;">instagram ↗</a>
+            <div style="margin-bottom: 12px;">
+                <a href="mailto:balabanyanarmen@gmail.com" style="color: inherit; text-decoration: none;">email ↗</a>
+            </div>
+            
+            <div>
+                <a href="https://www.instagram.com/armenbalabanyan?igsh=MTVjem42MTQ1aXd1Yg%3D%3D&utm_source=qr" target="_blank" style="color: inherit; text-decoration: none;">instagram ↗</a>
+            </div>
+        </div>
     </div>
 </div>
 
-
 <script>
+    function resetAllDetails() {
+        // Թաքցնում ենք բոլոր բացվող տեքստային detail բլոկները
+        if(document.getElementById('enki-details')) document.getElementById('enki-details').style.display = 'none';
+        if(document.getElementById('workshop-details')) document.getElementById('workshop-details').style.display = 'none';
+        if(document.getElementById('vahagn-details')) document.getElementById('vahagn-details').style.display = 'none';
+        
+        // Փակում ենք Visual բաժնի և Vahagn-ի սլայդերները
+        document.querySelectorAll('.slider-window').forEach(s => {
+            if (s.id !== 'vahagn-slider' && !s.closest('#shadow')) {
+                s.classList.remove('open');
+            }
+        });
+        if(document.getElementById('vahagn-slider')) document.getElementById('vahagn-slider').classList.remove('open');
+    }
+
     function showContent(id, element) {
+        // 1. Մաքրում ենք բոլոր բացված դաշտերը
+        resetAllDetails();
+
+        // 2. Փոխում ենք ակտիվ էջը
         document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
         document.querySelectorAll('.menu-item').forEach(m => m.classList.remove('active'));
+        
         document.getElementById(id).classList.add('active');
         element.classList.add('active');
 
+        // 3. Dark mode Shadow Theatre-ի համար
         if (id === 'shadow') {
             document.body.classList.add('dark-mode');
         } else {
@@ -416,38 +437,32 @@ By circumstance, I am Armen Balabanyan.<br>
     function toggleSlider(id) {
         const slider = document.getElementById(id);
         const isOpen = slider.classList.contains('open');
-        // Փակում ենք ՄԻԱՅՆ visual բաժնի սլայդերները
         document.querySelectorAll('#visual .slider-window').forEach(s => s.classList.remove('open'));
         if (!isOpen) slider.classList.add('open');
     }
+
     function toggleWorkshopDetails() {
         const details = document.getElementById('workshop-details');
         details.style.display = (details.style.display === 'none' || details.style.display === '') ? 'block' : 'none';
     }
+
     function toggleEnkiDetails() {
         const details = document.getElementById('enki-details');
         details.style.display = (details.style.display === 'none' || details.style.display === '') ? 'block' : 'none';
     }
-function toggleVahagn() {
-    // 1. Բացում կամ փակում ենք սլայդերը
-    const slider = document.getElementById('vahagn-slider');
-    slider.classList.toggle('open');
-    
-    // 2. Բացում կամ փակում ենք տեքստն ու PDF-ը
-    const details = document.getElementById('vahagn-details');
-    if (details.style.display === 'none' || details.style.display === '') {
-        details.style.display = 'block';
-    } else {
-        details.style.display = 'none';
+
+    function toggleVahagn() {
+        const slider = document.getElementById('vahagn-slider');
+        slider.classList.toggle('open');
+        
+        const details = document.getElementById('vahagn-details');
+        details.style.display = (details.style.display === 'none' || details.style.display === '') ? 'block' : 'none';
     }
-}
+
     function goHome() {
         document.querySelectorAll('.content, .menu-item').forEach(el => el.classList.remove('active'));
-        document.querySelectorAll('.slider-window').forEach(s => s.classList.remove('open'));
         document.body.classList.remove('dark-mode');
-        document.getElementById('enki-details').style.display = 'none';
-        document.getElementById('workshop-details').style.display = 'none';
-        document.getElementById('vahagn-details').style.display = 'none';
+        resetAllDetails();
     }
 </script>
 </body>
